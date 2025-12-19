@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BugMgmt Issues</title>
+  <link rel="stylesheet" href="assets/bugmgmt.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div>
+        <h1 class="h4">BugMgmt Issues</h1>
+        <p class="muted small">Local, PII-free issues · Deterministic sort (status → project → severity → ID)</p>
+      </div>
+      <div class="badges">
+        <span class="chip" id="totalCount"></span>
+      </div>
+    </div>
+
+    <div class="card filters">
+      <div class="filter-grid">
+        <label>Project<select id="project"></select></label>
+        <label>Status<select id="status"></select></label>
+        <label>Severity<select id="severity"></select></label>
+        <label>Phase<select id="phase"></select></label>
+        <label>Stage<select id="stage"></select></label>
+        <label>Search<input id="search" placeholder="Search text..." /></label>
+        <button id="resetFilters" class="btn">Reset filters</button>
+      </div>
+      <div class="filter-hint">Source: issues/issues.jsonl · Regenerate via <code>python scripts/issues.py list --format html --output UI/bugmgmt_issues.html</code></div>
+    </div>
+
+    <div class="summary" id="summaryRow"></div>
+
+    <div class="card">
+      <div class="table-wrap">
+        <table class="issues">
+          <thead>
+            <tr>
+              <th>ID</th><th>Status</th><th>Severity</th><th>Project</th><th>Phase</th><th>Stage</th><th>Area</th><th>Details</th>
+            </tr>
+          </thead>
+          <tbody id="issues-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <p class="footer muted">Open locally via file://; uses local assets with inline fallback data.</p>
+  </div>
+  <script>
+    window.BUGMGMT_CONFIG = { jsonPath: "../json-data/bugmgmt_issues.json" };
+    window.BUGMGMT_FALLBACK = [{"id": "TMP-2025-01-001", "date": "2025-01-05", "project": "sample_project", "phase": "01", "stage": "sample", "area": "process", "status": "open", "severity": "major", "summary": "Sample issue demonstrating the tracker", "owner": "unassigned"}, {"id": "TMP-2025-01-002", "date": "2025-01-06", "project": "sample_project", "phase": "01", "stage": "sample", "area": "docs", "status": "open", "severity": "minor", "summary": "Document how to add new stages", "owner": "unassigned"}];
+  </script>
+  <script src="assets/bugmgmt.js"></script>
+</body>
+</html>
