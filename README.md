@@ -1,35 +1,44 @@
 # Vibe Template
 
-A neutral, SRMS-free starter repo that packages the delivery process (personas, stage actions, DoD), sample project, optional BugMgmt module, and a basic UI report template. Use this as a seed when creating new AI/VIBE-style projects.
+A neutral, SRMS-free repo that packages the delivery process (personas, stage actions, DoD), the BugMgmt project, and a basic UI report template. Use this as a seed when creating new AI/VIBE-style projects.
 
 ## What you get
-- Standard process docs and personas in `DOCS/`.
-- Sample project scaffolding in `DOCS/projects/sample_project/`.
-- Optional BugMgmt module: `scripts/issues.py`, `issues/` store, exports in `json-data/`, UI in `UI/` with bundled assets.
-- Basic UI report template in `UI/templates/report_base.html` with bundled CSS/JS.
+- `support/`: process docs, templates, BugMgmt tooling, and UI reports/styles.
+- `projects/`: project planning docs (BugMgmt + Project Management).
+- Workspace directories for your product: `src/`, `tests/`, `config/`, `data/`, `assets/`, `scripts/`, `docs/`.
 
-## Quickstart
-1) Open a shell at the template root (`vibe_template_seed/`). Create a venv (optional):
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate
-   ```
-2) Regenerate BugMgmt exports from the sample data (run from the template root so paths stay local; otherwise pass `--data vibe_template_seed/issues/issues.jsonl`):
-   ```bash
-   python scripts/issues.py list --format json --output json-data/bugmgmt_issues.json
-   python scripts/issues.py list --format html --output UI/bugmgmt_issues.html
-   ```
-3) Open `UI/bugmgmt_issues.html` via `file://` to view the sample issues.
-4) Read the process in `DOCS/process.md` and the sample project plan in `DOCS/projectplan.md`.
-5) For full adoption steps, see `DOCS/template_howto.md`. Before sharing, walk through `DOCS/template_release_checklist.md`.
-6) If you haven’t renamed the project yet, start with the Project Creator/Owner persona in `DOCS/process.md` to set the project name/purpose and update `DOCS/projectplan.md` and project paths.
+## First-time flow (AI-first)
+Describe the new repo and project to your agent; it will handle the steps below. Manual commands are included only if you are working without an agent.
+
+1) Copy this repo to a new starter repo.
+   - Example: `cp -R vibe_template_seed <new_repo_name>` or clone/rename.
+   - Treat this template repo as read-only; do your work in the new repo.
+   - Keep `support/` intact; put product work under `src/`, `tests/`, `config/`, `data/`, `assets/`, `scripts/`, `docs/`.
+2) Activate the process.
+   - Read `support/docs/process.md`, `support/docs/projectplan.md`, and `support/docs/project_wide_docs/personas.md`.
+   - Open `index.html` (redirects to `support/ui/PM.html`) via `file://` and keep the stage action file open while you work.
+   - While editing docs, run `python3 support/scripts/watch_docs.py` from the repo root to auto-render `support/ui/docs/` (manual fallback).
+3) Initiate a new project.
+   - Automated: `python3 support/scripts/init_project.py --project <project> --prefix <PREFIX> --owner "Name"`
+   - Manual: copy `projects/_template/` to `projects/<project>/` and edit placeholders.
+   - Then run `python3 support/scripts/render_docs.py` to refresh formatted docs after any doc edits.
+
+## Optional setup
+Use `python3` for the commands below; if your system maps `python` to Python 3, you can use `python` instead.
+If you use a virtual environment, keep `.venv/` out of version control (this repo includes a `.gitignore`).
+If you use BugMgmt, regenerate exports after any bug change:
+```bash
+python3 support/scripts/issues.py list --format json --output support/bugmgmt/exports/json/bugmgmt_issues.json
+python3 support/scripts/issues.py list --format html --output support/ui/bugmgmt_issues.html
+```
+Open `support/ui/bugmgmt_issues.html` and `support/ui/PM.html` via `file://` to review.
 
 ## Optional modules
-- BugMgmt: keep if you want local issue tracking; remove or ignore `issues/`, `json-data/`, `UI/bugmgmt_issues.html`, and `scripts/issues.py` if not needed.
-- UI template: extend `UI/templates/report_base.html` for lightweight static reports.
-- LaTeX user docs: start from `DOCS/user_docs/user_doc_template.tex` if you want PDF user guides.
+- BugMgmt: keep if you want local issue tracking; remove or ignore `support/bugmgmt/`, `support/ui/bugmgmt_issues.html`, and `support/scripts/issues.py` if not needed.
+- UI template: extend `support/ui/templates/report_base.html` for lightweight static reports.
+- LaTeX user docs: start from `support/docs/user_docs/user_doc_template.tex` if you want PDF user guides.
 
 ## Notes
 - Sample data is PII-free and deterministic.
 - All assets are local; no external network calls are required.
-- Update paths via CLI flags or env vars (see `python scripts/issues.py --help`).
+- Update paths via CLI flags or env vars (see `python3 support/scripts/issues.py --help`).
