@@ -9,12 +9,12 @@
 - **Definition of Done:** Acceptance met; persona notes filled; validation captured.
 
 ## Personas (record outputs; use `AI_first/docs/templates/review_checklists.md`)
-- Reviewer/Sponsor:
 - Project/Process Manager: Confirmed the drop-in goal: keep all process/BugMgmt/PM artifacts under `AI_first/`, remove empty workspace dirs, and update docs/scripts to point at `AI_first/projects/`.
-- Developer:
-- QA Lead:
-- Docs Expert:
-- Architect/Security/Ops/Perf/DBA/UI (if triggered):
+- Developer: Consolidated project planning docs and references under `AI_first/`; updated render scripts and refreshed PM/project detail views.
+- QA Lead: Spot-checked PM.html and project detail pages for link resolution and rendering consistency.
+- Optional personas (Product Manager, Repository Steward, Docs Expert, UI/Accessibility, Bug Triage, Automation/Tooling, Architect, Security, Ops/Observability, Performance/Cost, DBA):
+- Docs Expert: Updated process and persona docs plus the process guide to align with the consolidated layout.
+- Automation/Tooling: Ran the doc and PM render scripts to keep UI outputs in sync.
 
 ## Plan
 - Inventory PM-related files and current references.
@@ -23,14 +23,19 @@
 - Regenerate docs and validate links.
 
 ## Execution notes
-- Pending.
+- Verified process, BugMgmt, and project management assets live under `AI_first/`.
+- Updated docs/templates to align prompts, persona ordering, and consolidated paths.
+- Regenerated PM and docs UI outputs from the updated sources.
 
 ## Validation
-- Run `python3 AI_first/scripts/render_docs.py` and spot-check PM links.
-- Confirm `AI_first/ui/PM.html` references resolve.
+- Ran `python3 AI_first/scripts/render_docs.py` and `python3 AI_first/scripts/render_pm.py`.
+- Spot-checked `AI_first/ui/PM.html` and `AI_first/ui/project_project_management.html` for resolved links.
+- Confirmed `AI_first/ui/docs/` renders the updated markdown outputs.
 
 ## Documentation updates
-- Update `AI_first/docs/projectplan.md`, process docs, and README/AGENTS with new paths.
+- Updated `AI_first/docs/projectplan.md` and project summary to reflect Phase 03 completion.
+- Updated phase docs and stage action with completion status and close-out notes.
+- Refreshed the process guide and persona docs after consolidation updates.
 
 ## Issues & lessons
-- Pending.
+- None noted.

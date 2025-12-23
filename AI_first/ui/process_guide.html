@@ -83,7 +83,7 @@
       </div>
       <details class="block">
         <summary class="h4">Prompt Text</summary>
-        <code id="contextPromptText">Context Launch: Review AI_first/ui/index.html, AI_first/ui/PM.html, AI_first/ui/bugmgmt_issues.html, AI_first/docs/process.md, AI_first/docs/projectplan.md, and AI_first/docs/project_wide_docs/personas.md. Identify the active project, phase, and stage action file; list open bugs; summarize current status; and ask which persona to activate next (default Reviewer/Sponsor, then Project/Process Manager). If no stage action file exists, propose the file path using the naming convention.</code>
+        <code id="contextPromptText">Context Launch: Review AI_first/ui/index.html, AI_first/ui/PM.html, AI_first/ui/bugmgmt_issues.html, AI_first/docs/process.md, AI_first/docs/projectplan.md, and AI_first/docs/project_wide_docs/personas.md. Identify the active project, phase, and stage action file; list open bugs; summarize current status; and ask which persona to activate next (default order: Project Creator/Owner -> Project/Process Manager -> Developer -> QA Lead; add optional personas from AI_first/docs/project_wide_docs/personas.md only when scope triggers them). If no stage action file exists, propose the file path using the naming convention.</code>
       </details>
     </section>
 
@@ -208,13 +208,13 @@
 
     <section class="card tab-panel" id="personas-windows" data-tab="personas-windows">
       <h2 class="h4">Personas and Windows</h2>
-      <p class="muted small">Default to three terminals or windows: Project Management, Developer, and QA. Keep each perspective visible while AI drafts and you validate the work.</p>
+      <p class="muted small">Default to three terminals or windows: Project Creator/Owner (switching to Project/Process Manager once the project is defined), Developer, and QA. Keep each perspective visible while AI drafts and you validate the work.</p>
       <div class="grid-3">
         <div class="loop-step terminal-card terminal-pm">
           <div class="kicker">Terminal 1</div>
-          <h3 class="h5">Project Management</h3>
-          <p class="muted small">Review the project plan, active phase docs, and action plan in one view.</p>
-          <p class="small">Use this window to log decisions and keep project actions aligned.</p>
+          <h3 class="h5">Project Creator/Owner -> Project/Process Manager</h3>
+          <p class="muted small">Define the project setup, then review the plan, active phase docs, and action plan.</p>
+          <p class="small">Start with project definition, then log decisions and keep actions aligned.</p>
         </div>
         <div class="loop-step terminal-card terminal-dev">
           <div class="kicker">Terminal 2</div>
@@ -234,6 +234,11 @@
         <p class="muted small">Use these prompts to keep each terminal aligned with its persona.</p>
         <div class="prompt-grid">
           <div class="prompt-card">
+            <div class="kicker">Project Creator/Owner Persona</div>
+            <p class="muted small">Initialize the project setup.</p>
+            <code>Activate Project Creator/Owner Persona. Confirm project name, purpose, owner, prefix, and initial phases to create.</code>
+          </div>
+          <div class="prompt-card">
             <div class="kicker">Project/Process Manager Persona</div>
             <p class="muted small">Clarify scope and next actions.</p>
             <code>Activate Project/Process Manager Persona. Select the active project and phase, review the stage action file, and continue from the last update with 3 next actions and acceptance criteria.</code>
@@ -244,18 +249,29 @@
             <code>Activate Developer Persona. Select the active project and phase, continue from the last update, and carry out the actions already identified or fix a logged bug. Summarize changes and draft updates for the stage action file and bug entry.</code>
           </div>
           <div class="prompt-card">
-            <div class="kicker">QA Persona</div>
+            <div class="kicker">QA Lead Persona</div>
             <p class="muted small">Validate and document outcomes.</p>
-            <code>Activate QA Persona. Select the active project and phase, continue from the last update, and either log a bug or outline a test automation suite. Draft validation notes for the stage action file or bug entry.</code>
+            <code>Activate QA Lead Persona. Select the active project and phase, continue from the last update, and either log a bug or outline a test automation suite. Draft validation notes for the stage action file or bug entry.</code>
           </div>
         </div>
       </details>
       <details class="block">
-        <summary class="h4">Persona responsibilities</summary>
+        <summary class="h4">Primary personas (core workflow)</summary>
         <div class="grid-3">
+          <div class="persona-card persona-owner">
+            <div class="kicker">Primary persona</div>
+            <h3 class="h5">Project Creator/Owner Persona</h3>
+            <p class="muted small">Focus: Initialize and define.</p>
+            <ul class="muted small">
+              <li>Use for first-time setup or new project creation.</li>
+              <li>Confirm project name, purpose, owner, and prefix.</li>
+              <li>Define initial phases and files to create.</li>
+            </ul>
+          </div>
           <div class="persona-card persona-pm">
-            <div class="kicker">Project/Process Manager Persona</div>
-            <h3 class="h5">Plan and steer</h3>
+            <div class="kicker">Primary persona</div>
+            <h3 class="h5">Project/Process Manager Persona</h3>
+            <p class="muted small">Focus: Plan and steer.</p>
             <ul class="muted small">
               <li>Define phases and actions in <code>projectplan.md</code> and phase docs.</li>
               <li>Confirm scope and acceptance criteria in stage action files.</li>
@@ -263,8 +279,9 @@
             </ul>
           </div>
           <div class="persona-card persona-dev">
-            <div class="kicker">Developer Persona</div>
-            <h3 class="h5">Build and resolve</h3>
+            <div class="kicker">Primary persona</div>
+            <h3 class="h5">Developer Persona</h3>
+            <p class="muted small">Focus: Build and resolve.</p>
             <ul class="muted small">
               <li>Execute the active stage action file.</li>
               <li>Analyze root cause and propose fixes in Bug Management.</li>
@@ -272,12 +289,118 @@
             </ul>
           </div>
           <div class="persona-card persona-qa">
-            <div class="kicker">QA Persona</div>
-            <h3 class="h5">Validate and capture</h3>
+            <div class="kicker">Primary persona</div>
+            <h3 class="h5">QA Lead Persona</h3>
+            <p class="muted small">Focus: Validate and capture.</p>
             <ul class="muted small">
               <li>Draft bug entries with AI and confirm reproduction steps.</li>
               <li>Validate fixes and update notes for closed issues.</li>
               <li>Use <a href="bugmgmt_issues.html">Bug Management</a> for audit visibility.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+      <details class="block">
+        <summary class="h4">Optional personas (scope-triggered)</summary>
+        <p class="muted small">Use these when the work crosses boundaries or introduces new risks.</p>
+        <div class="grid-3">
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">Product Manager</h3>
+            <p class="muted small">Focus: Scope and acceptance.</p>
+            <ul class="muted small">
+              <li>Define acceptance criteria and boundaries.</li>
+              <li>Clarify in/out of scope and open questions.</li>
+            </ul>
+          </div>
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">Repository Steward</h3>
+            <p class="muted small">Focus: Protect structure.</p>
+            <ul class="muted small">
+              <li>Keep AI_first and project work separated.</li>
+              <li>Review structure and README updates.</li>
+            </ul>
+          </div>
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">Docs Expert</h3>
+            <p class="muted small">Focus: Keep docs correct.</p>
+            <ul class="muted small">
+              <li>Update process and project docs as needed.</li>
+              <li>Fix broken links and improve clarity.</li>
+            </ul>
+          </div>
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">UI/Accessibility</h3>
+            <p class="muted small">Focus: Usability and a11y.</p>
+            <ul class="muted small">
+              <li>Review UI consistency and accessibility.</li>
+              <li>Flag usability and layout issues.</li>
+            </ul>
+          </div>
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">Bug Triage</h3>
+            <p class="muted small">Focus: Data integrity.</p>
+            <ul class="muted small">
+              <li>Validate IDs, required fields, and owners.</li>
+              <li>Confirm status and severity consistency.</li>
+            </ul>
+          </div>
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">Automation/Tooling</h3>
+            <p class="muted small">Focus: Keep exports in sync.</p>
+            <ul class="muted small">
+              <li>List commands to refresh outputs.</li>
+              <li>Validate regenerated reports.</li>
+            </ul>
+          </div>
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">Architect</h3>
+            <p class="muted small">Focus: Cross-boundary review.</p>
+            <ul class="muted small">
+              <li>Use for major structure or workflow changes.</li>
+              <li>Output: architecture risks and acceptance conditions.</li>
+            </ul>
+          </div>
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">Security</h3>
+            <p class="muted small">Focus: Threats and mitigations.</p>
+            <ul class="muted small">
+              <li>Use when new data flows or secrets are involved.</li>
+              <li>Output: threat notes and mitigation plan.</li>
+            </ul>
+          </div>
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">Ops/Observability</h3>
+            <p class="muted small">Focus: Operational readiness.</p>
+            <ul class="muted small">
+              <li>Use when automation or runbooks change.</li>
+              <li>Output: monitoring and rollback gaps.</li>
+            </ul>
+          </div>
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">Performance/Cost</h3>
+            <p class="muted small">Focus: Scale and efficiency.</p>
+            <ul class="muted small">
+              <li>Use when performance or cost is a concern.</li>
+              <li>Output: thresholds and perf risks.</li>
+            </ul>
+          </div>
+          <div class="persona-card">
+            <div class="kicker">Optional persona</div>
+            <h3 class="h5">DBA</h3>
+            <p class="muted small">Focus: Data integrity.</p>
+            <ul class="muted small">
+              <li>Use if a database or schema change is introduced.</li>
+              <li>Output: integrity risks and backup needs.</li>
             </ul>
           </div>
         </div>

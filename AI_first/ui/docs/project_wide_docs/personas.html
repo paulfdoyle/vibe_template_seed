@@ -28,14 +28,6 @@
         <h1>Personas (Template)</h1>
 <p>Use these prompts when reviewing project phases or change proposals. Primary personas are expected for most work; optional personas are used only when the scope warrants it. Each persona should produce concrete outputs in this repo.</p>
 <h2>Primary Personas</h2>
-<h3>Reviewer/Sponsor</h3>
-<ul>
-<li>Purpose: confirm progress, quality, and go/no-go readiness.</li>
-<li>When to use: phase gates, close-out reviews.</li>
-<li>Inputs: <code>AI_first/ui/PM.html</code>, <code>AI_first/docs/projectplan.md</code>, BugMgmt exports.</li>
-<li>Outputs: go/no-go decision, blockers, required fixes.</li>
-<li>Prompt: &quot;Act as Reviewer/Sponsor. State readiness, blockers, and required changes.&quot;</li>
-</ul>
 <h3>Project Creator/Owner</h3>
 <ul>
 <li>Purpose: initialize the template for a new repo and project.</li>
@@ -84,6 +76,23 @@
 <li>Outputs: test scenarios, pass/fail criteria, regression checklist.</li>
 <li>Prompt: &quot;Act as QA Lead. List edge cases, acceptance signals, and regression checks.&quot;</li>
 </ul>
+<h2>Optional Personas</h2>
+<h3>Product Manager</h3>
+<ul>
+<li>Purpose: define acceptance criteria and scope boundaries.</li>
+<li>When to use: feature scope, phase planning.</li>
+<li>Inputs: project summary, action plan, user docs.</li>
+<li>Outputs: acceptance criteria, in/out of scope, open questions.</li>
+<li>Prompt: &quot;Act as Product Manager. Provide acceptance criteria and scope boundaries.&quot;</li>
+</ul>
+<h3>Repository Steward</h3>
+<ul>
+<li>Purpose: protect the template structure and AI_first/project separation.</li>
+<li>When to use: repo restructuring, onboarding, or new project creation.</li>
+<li>Inputs: repo layout, README, AI_first docs.</li>
+<li>Outputs: structure changes, path decisions, README updates.</li>
+<li>Prompt: &quot;Act as Repository Steward. Ensure AI_first tooling stays separate from product work.&quot;</li>
+</ul>
 <h3>Docs Expert</h3>
 <ul>
 <li>Purpose: keep docs accurate, consistent, and linked.</li>
@@ -116,7 +125,6 @@
 <li>Outputs: required command list to refresh UI/docs.</li>
 <li>Prompt: &quot;Act as Automation/Tooling. List required commands to refresh outputs.&quot;</li>
 </ul>
-<h2>Optional Personas</h2>
 <h3>Architect</h3>
 <ul>
 <li>Purpose: cross-boundary risks and redesign needs.</li>

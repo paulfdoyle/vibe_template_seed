@@ -7,7 +7,7 @@
 - **Scope/files:** In: <scope>; Out: <out>.
 - **Dependencies:** <dependencies>
 - **Risks/assumptions:** <risks>
-- **Persona actions:** Default Reviewer/Sponsor → Project/Process Manager → Developer → QA Lead; add others as needed.
+- **Persona actions:** Default Project Creator/Owner → Project/Process Manager → Developer → QA Lead; add optional personas as needed.
 - **Validation:** <validation>
 - **Rollback:** <rollback>
 - **Ready checklist:** <ready>

@@ -9,7 +9,7 @@
 - **Scope/files:** In: PM.html structure/formatting plan, user docs index improvements; Out: automation.
 - **Dependencies:** None.
 - **Risks/assumptions:** Keep changes within the existing BugMgmt CSS system.
-- **Persona actions:** Default Reviewer/Sponsor → Project/Process Manager → Developer → QA Lead → Docs Expert.
+- **Persona actions:** Default Project Creator/Owner → Project/Process Manager → Developer → QA Lead; add optional personas as needed.
 - **Validation:** Proposal includes clear sections, data requirements, and acceptance criteria.
 - **Rollback:** Revert Phase 02 docs if scope changes.
 - **Ready checklist:** Phase 02 files exist.

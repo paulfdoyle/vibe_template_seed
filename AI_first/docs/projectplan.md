@@ -15,14 +15,14 @@ Internal source of truth for projects and phases. Use PM.html for the visual por
   - Phase directory map:
     - `AI_first/projects/bugmgmt/phases/phase01/phase_definition.md` — definition of Phase 01.
     - `AI_first/projects/bugmgmt/phases/phase01/action_plan_phase01.md` — action plan for Phase 01 (links to stage actions under `AI_first/projects/bugmgmt/phases/phase01/actions/`).
-- **project_management (active)**
+- **project_management (complete)**
   - Summary: `AI_first/projects/project_management/project_summary_project_management.md`
   - Phases root: `AI_first/projects/project_management/phases/`
   - Issues log: use BugMgmt entries with `project: "project_management"`
   - Phases overview:
     - Phase 01 — PM.html foundation (complete): see `AI_first/projects/project_management/phases/phase01/`.
     - Phase 02 — Professional report & docs presentation (complete): see `AI_first/projects/project_management/phases/phase02/`.
-    - Phase 03 — Consolidation under single directory: see `AI_first/projects/project_management/phases/phase03/`.
+    - Phase 03 — Consolidation under single directory (complete): see `AI_first/projects/project_management/phases/phase03/`.
   - Phase directory map:
     - `AI_first/projects/project_management/phases/phase01/phase_definition.md` — definition of Phase 01.
     - `AI_first/projects/project_management/phases/phase01/action_plan_phase01.md` — action plan for Phase 01 (links to stage actions under `AI_first/projects/project_management/phases/phase01/actions/`).

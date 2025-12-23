@@ -52,10 +52,10 @@
               <th>Phase</th>
               <th>Status</th>
               <th>Last Updated</th>
-              <th>Links</th>
             </tr>
           </thead>
           <tbody>
+            <!-- PHASE_ROWS_START -->
             <tr data-phase="Phase 01 — Foundation"
                 data-phase-def-id="phase01-def"
                 data-action-plan-id="phase01-plan"
@@ -64,14 +64,8 @@
               <td>Phase 01 — Foundation</td>
               <td><span class="badge status-closed">Complete</span></td>
               <td>2025-12-22</td>
-              <td>
-                <div class="links">
-                  <a href="docs/projects/bugmgmt/phases/phase01/phase_definition.html">Phase Def</a>
-                  <a href="docs/projects/bugmgmt/phases/phase01/action_plan_phase01.html">Action Plan</a>
-                  <a href="docs/projects/bugmgmt/phases/phase01/actions/bugmgmt_phase01_stage_foundation_action.html">Stage Action</a>
-                </div>
-              </td>
             </tr>
+<!-- PHASE_ROWS_END -->
           </tbody>
         </table>
       </div>
@@ -116,47 +110,17 @@
       </div>
     </section>
 
+    <!-- PHASE_TEMPLATES_START -->
     <template id="phase01-def">
-      <ul class="muted small">
-        <li><strong>Objective:</strong> Define the BugMgmt workflow, data schema, and UI expectations.</li>
-        <li><strong>Status:</strong> Complete.</li>
-        <li><strong>Completed:</strong> 2025-12-22.</li>
-        <li><strong>Scope:</strong> In: issue fields, status/severity rules, export flow, and UI table behavior; Out: integrations or external services.</li>
-        <li><strong>Definition of completion:</strong> Phase action plan and at least one stage action exist with persona notes and DoD references.</li>
-        <li><strong>Stages:</strong> Foundation stage -> <code>AI_first/projects/bugmgmt/phases/phase01/actions/bugmgmt_phase01_stage_foundation_action.md</code></li>
-        <li><strong>Dependencies:</strong> None.</li>
-        <li><strong>Risks/assumptions:</strong> Keep scope focused; remain PII-free.</li>
-        <li><strong>Links:</strong> <code>AI_first/docs/projectplan.md</code>, <code>AI_first/projects/bugmgmt/project_summary_bugmgmt.md</code></li>
-      </ul>
+      <ul class="muted small"><li><strong>Objective:</strong> Define the BugMgmt workflow, data schema, and UI expectations.</li><li><strong>Status:</strong> Complete.</li><li><strong>Completed:</strong> 2025-12-22.</li><li><strong>Scope:</strong> In: issue fields, status/severity rules, export flow, and UI table behavior; Out: integrations or external services.</li><li><strong>Definition of completion:</strong> Phase action plan and at least one stage action exist with persona notes and DoD references.</li><li><strong>Stages:</strong></li><li>Foundation stage → <code>AI_first/projects/bugmgmt/phases/phase01/actions/bugmgmt_phase01_stage_foundation_action.md</code></li><li><strong>Dependencies:</strong> None.</li><li><strong>Risks/assumptions:</strong> Keep scope focused; remain PII-free.</li><li><strong>Links:</strong> <code>AI_first/docs/projectplan.md</code>, <code>AI_first/projects/bugmgmt/project_summary_bugmgmt.md</code></li></ul>
     </template>
     <template id="phase01-plan">
-      <ul class="muted small">
-        <li><strong>Phase:</strong> see <code>AI_first/projects/bugmgmt/phases/phase01/phase_definition.md</code>.</li>
-        <li><strong>Stage list:</strong> Foundation stage -> <code>AI_first/projects/bugmgmt/phases/phase01/actions/bugmgmt_phase01_stage_foundation_action.md</code></li>
-        <li><strong>Objective:</strong> Establish the baseline BugMgmt workflow, schema, and UI expectations.</li>
-        <li><strong>Status:</strong> Complete.</li>
-        <li><strong>Completed:</strong> 2025-12-22.</li>
-        <li><strong>Scope/files:</strong> In: stage action doc(s); Out: integrations or external tooling.</li>
-        <li><strong>Dependencies:</strong> None.</li>
-        <li><strong>Risks/assumptions:</strong> Keep the initial stage actionable and small.</li>
-        <li><strong>Persona actions:</strong> Default Reviewer/Sponsor -> Project/Process Manager -> Developer -> QA Lead.</li>
-        <li><strong>Validation:</strong> Stage action file exists and references review checklists.</li>
-        <li><strong>Rollback:</strong> Revert phase documents if scope changes.</li>
-        <li><strong>Ready checklist:</strong> Templates available.</li>
-        <li><strong>Done checklist:</strong> Stage action populated with persona notes.</li>
-      </ul>
+      <ul class="muted small"><li><strong>Phase:</strong> see <code>AI_first/projects/bugmgmt/phases/phase01/phase_definition.md</code>.</li><li><strong>Stage list:</strong></li><li>Foundation stage → <code>AI_first/projects/bugmgmt/phases/phase01/actions/bugmgmt_phase01_stage_foundation_action.md</code></li><li><strong>Objective:</strong> Establish the baseline BugMgmt workflow, schema, and UI expectations.</li><li><strong>Status:</strong> Complete.</li><li><strong>Completed:</strong> 2025-12-22.</li><li><strong>Scope/files:</strong> In: stage action doc(s); Out: integrations or external tooling.</li><li><strong>Dependencies:</strong> None.</li><li><strong>Risks/assumptions:</strong> Keep the initial stage actionable and small.</li><li><strong>Persona actions:</strong> Default Project Creator/Owner → Project/Process Manager → Developer → QA Lead; add optional personas as needed.</li><li><strong>Validation:</strong> Stage action file exists and references review checklists.</li><li><strong>Rollback:</strong> Revert phase documents if scope changes.</li><li><strong>Ready checklist:</strong> Templates available.</li><li><strong>Done checklist:</strong> Stage action populated with persona notes.</li></ul>
     </template>
     <template id="phase01-action">
-      <ul class="muted small">
-        <li><strong>Phase/Stage:</strong> Phase 01 — Foundation.</li>
-        <li><strong>Objective:</strong> Define BugMgmt workflows, issue fields, and UI expectations.</li>
-        <li><strong>Scope:</strong> In: schema and workflow docs, UI behavior notes; Out: integrations.</li>
-        <li><strong>Acceptance:</strong> Persona notes recorded; schema/workflow expectations documented; DoD referenced.</li>
-        <li><strong>Dependencies/data:</strong> <code>AI_first/bugmgmt/issues/issues.jsonl</code>, <code>AI_first/scripts/issues.py</code>, <code>AI_first/ui/bugmgmt_issues.html</code>.</li>
-        <li><strong>Outputs:</strong> Updated phase/stage docs and any related process updates.</li>
-        <li><strong>Definition of Done:</strong> Persona notes filled, DoD checklist referenced, validation steps recorded.</li>
-      </ul>
+      <ul class="muted small"><li><strong>Phase/Stage:</strong> Phase 01 — Foundation.</li><li><strong>Objective:</strong> Define BugMgmt workflows, issue fields, and UI expectations.</li><li><strong>Scope:</strong> In: schema and workflow docs, UI behavior notes; Out: integrations.</li><li><strong>Acceptance:</strong> Persona notes recorded; schema/workflow expectations documented; DoD referenced.</li><li><strong>Dependencies/data:</strong> <code>AI_first/bugmgmt/issues/issues.jsonl</code>, <code>AI_first/scripts/issues.py</code>, <code>AI_first/ui/bugmgmt_issues.html</code>.</li><li><strong>Outputs:</strong> Updated phase/stage docs and any related process updates.</li><li><strong>Definition of Done:</strong> Persona notes filled, DoD checklist referenced, validation steps recorded.</li></ul>
     </template>
+<!-- PHASE_TEMPLATES_END -->
 
   </div>
   <script>

@@ -1,6 +1,8 @@
 # Phase 01 — PM.html foundation
 
 - **Objective:** Define the PM.html layout, data sources, and link requirements.
+- **Status:** Complete.
+- **Completed:** 2025-12-22.
 - **Scope:** In: project/phase/status/action summary requirements, link targets; Out: data ingestion automation.
 - **Definition of completion:** Phase action plan and stage action exist with persona notes and DoD references.
 - **Stages:**

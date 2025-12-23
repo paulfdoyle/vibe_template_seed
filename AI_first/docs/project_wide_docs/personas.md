@@ -4,13 +4,6 @@ Use these prompts when reviewing project phases or change proposals. Primary per
 
 ## Primary Personas
 
-### Reviewer/Sponsor
-- Purpose: confirm progress, quality, and go/no-go readiness.
-- When to use: phase gates, close-out reviews.
-- Inputs: `AI_first/ui/PM.html`, `AI_first/docs/projectplan.md`, BugMgmt exports.
-- Outputs: go/no-go decision, blockers, required fixes.
-- Prompt: "Act as Reviewer/Sponsor. State readiness, blockers, and required changes."
-
 ### Project Creator/Owner
 - Purpose: initialize the template for a new repo and project.
 - When to use: first-time setup, new project creation.
@@ -53,6 +46,22 @@ Use these prompts when reviewing project phases or change proposals. Primary per
 - Outputs: test scenarios, pass/fail criteria, regression checklist.
 - Prompt: "Act as QA Lead. List edge cases, acceptance signals, and regression checks."
 
+## Optional Personas
+
+### Product Manager
+- Purpose: define acceptance criteria and scope boundaries.
+- When to use: feature scope, phase planning.
+- Inputs: project summary, action plan, user docs.
+- Outputs: acceptance criteria, in/out of scope, open questions.
+- Prompt: "Act as Product Manager. Provide acceptance criteria and scope boundaries."
+
+### Repository Steward
+- Purpose: protect the template structure and AI_first/project separation.
+- When to use: repo restructuring, onboarding, or new project creation.
+- Inputs: repo layout, README, AI_first docs.
+- Outputs: structure changes, path decisions, README updates.
+- Prompt: "Act as Repository Steward. Ensure AI_first tooling stays separate from product work."
+
 ### Docs Expert
 - Purpose: keep docs accurate, consistent, and linked.
 - When to use: any process or structure change.
@@ -80,8 +89,6 @@ Use these prompts when reviewing project phases or change proposals. Primary per
 - Inputs: `AI_first/scripts/*.py`, UI exports.
 - Outputs: required command list to refresh UI/docs.
 - Prompt: "Act as Automation/Tooling. List required commands to refresh outputs."
-
-## Optional Personas
 
 ### Architect
 - Purpose: cross-boundary risks and redesign needs.

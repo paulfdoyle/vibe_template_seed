@@ -222,9 +222,14 @@ body {
   border-left: 4px solid var(--border);
   padding-left: 12px;
 }
+.persona-owner { border-left-color: #be123c; }
 .persona-pm { border-left-color: #1d4ed8; }
 .persona-dev { border-left-color: #b45309; }
 .persona-qa { border-left-color: #047857; }
+.loop-step.persona-owner {
+  border-left: 4px solid #be123c;
+  background: #fff1f2;
+}
 .loop-step.persona-pm {
   border-left: 4px solid #1d4ed8;
   background: #eff6ff;
@@ -452,6 +457,13 @@ details.block {
   text-align: left;
   font-size: 14px;
 }
+.pm-table th:first-child,
+.pm-table td:first-child {
+  width: 32%;
+  max-width: 360px;
+  white-space: normal;
+}
+.pm-table td:first-child { overflow-wrap: anywhere; }
 .table-wrap thead { background: var(--accent-light); }
 .table-wrap tbody tr:last-child td { border-bottom: none; }
 .table-wrap tbody tr[data-link],

@@ -9,12 +9,10 @@
 - **Definition of Done:** Persona notes filled and proposal documented.
 
 ## Personas (record outputs; use `AI_first/docs/templates/review_checklists.md`)
-- Reviewer/Sponsor:
 - Project/Process Manager:
 - Developer:
 - QA Lead:
-- Docs Expert:
-- Architect/Security/Ops/Perf/DBA/UI (if triggered):
+- Optional personas (Product Manager, Repository Steward, Docs Expert, UI/Accessibility, Bug Triage, Automation/Tooling, Architect, Security, Ops/Observability, Performance/Cost, DBA):
 
 ## Analysis
 - PM.html mixes summary, links, and action text in a single table; this makes scanning harder and hides status/ownership context.

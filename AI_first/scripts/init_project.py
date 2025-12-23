@@ -282,10 +282,10 @@ def _write_project_detail_page(
                       <th>Phase</th>
                       <th>Status</th>
                       <th>Last Updated</th>
-                      <th>Links</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <!-- PHASE_ROWS_START -->
                     <tr data-phase="Phase 01 — {phase_name}"
                         data-phase-def-id="phase01-def"
                         data-action-plan-id="phase01-plan"
@@ -294,14 +294,8 @@ def _write_project_detail_page(
                       <td>Phase 01 — {phase_name}</td>
                       <td><span class="badge status-open">Planning</span></td>
                       <td>{date_str}</td>
-                      <td>
-                        <div class="links">
-                          <a href="docs/projects/{project}/phases/phase01/phase_definition.html">Phase Def</a>
-                          <a href="docs/projects/{project}/phases/phase01/action_plan_phase01.html">Action Plan</a>
-                          <a href="docs/projects/{project}/phases/phase01/actions/{project}_phase01_stage_{stage_slug}_action.html">Stage Action</a>
-                        </div>
-                      </td>
                     </tr>
+                    <!-- PHASE_ROWS_END -->
                   </tbody>
                 </table>
               </div>
@@ -316,6 +310,7 @@ def _write_project_detail_page(
               </div>
             </section>
 
+            <!-- PHASE_TEMPLATES_START -->
             <template id="phase01-def">
               {phase_def_summary}
             </template>
@@ -325,6 +320,7 @@ def _write_project_detail_page(
             <template id="phase01-action">
               {stage_action_summary}
             </template>
+            <!-- PHASE_TEMPLATES_END -->
 
           </div>
           <script>
@@ -501,7 +497,7 @@ def main() -> None:
         - **Scope/files:** In: stage action doc(s); Out: implementation or external tooling.
         - **Dependencies:** None.
         - **Risks/assumptions:** Keep the initial stage actionable and small.
-        - **Persona actions:** Default Reviewer/Sponsor → Project/Process Manager → Developer → QA Lead.
+        - **Persona actions:** Default Project Creator/Owner → Project/Process Manager → Developer → QA Lead; add optional personas as needed.
         - **Validation:** Stage action file exists and references review checklists.
         - **Rollback:** Revert phase documents if scope changes.
         - **Ready checklist:** Templates available.
@@ -521,12 +517,10 @@ def main() -> None:
         - **Definition of Done:** Persona notes filled, DoD checklist referenced, validation steps recorded.
 
         ## Personas (record outputs; use `AI_first/docs/templates/review_checklists.md`)
-        - Reviewer/Sponsor:
         - Project/Process Manager:
         - Developer:
         - QA Lead:
-        - Docs Expert:
-        - Architect/Security/Ops/Perf/DBA/UI (if triggered):
+        - Optional personas (Product Manager, Repository Steward, Docs Expert, UI/Accessibility, Bug Triage, Automation/Tooling, Architect, Security, Ops/Observability, Performance/Cost, DBA):
 
         ## Plan
         - Confirm project scope and constraints.

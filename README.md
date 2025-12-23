@@ -25,6 +25,7 @@ Copy the `AI_first/` directory into your target repo root and follow this flow. 
 Run scripts from the repo root. Use `python3` for the commands below; if your system maps `python` to Python 3, you can use `python` instead.
 
 - Render docs: `python3 AI_first/scripts/render_docs.py`
+- Render PM dashboards: `python3 AI_first/scripts/render_pm.py`
 - Watch docs: `python3 AI_first/scripts/watch_docs.py`
 - Regenerate Bug Management exports:
   ```bash

@@ -30,7 +30,7 @@
       </div>
       <details class="block">
         <summary class="h4">Prompt Text</summary>
-        <code id="contextPromptText">Context Launch: Review AI_first/ui/index.html, AI_first/ui/PM.html, AI_first/ui/bugmgmt_issues.html, AI_first/docs/process.md, AI_first/docs/projectplan.md, and AI_first/docs/project_wide_docs/personas.md. Identify the active project, phase, and stage action file; list open bugs; summarize current status; and ask which persona to activate next (default Reviewer/Sponsor, then Project/Process Manager). If no stage action file exists, propose the file path using the naming convention.</code>
+        <code id="contextPromptText">Context Launch: Review AI_first/ui/index.html, AI_first/ui/PM.html, AI_first/ui/bugmgmt_issues.html, AI_first/docs/process.md, AI_first/docs/projectplan.md, and AI_first/docs/project_wide_docs/personas.md. Identify the active project, phase, and stage action file; list open bugs; summarize current status; and ask which persona to activate next (default order: Project Creator/Owner -> Project/Process Manager -> Developer -> QA Lead; add optional personas from AI_first/docs/project_wide_docs/personas.md only when scope triggers them). If no stage action file exists, propose the file path using the naming convention.</code>
       </details>
     </section>
 
@@ -56,6 +56,7 @@
       <p class="muted small">Scripts are only for refreshing UI exports or scaffolding; day-to-day work stays doc-driven and AI-led.</p>
       <ul class="muted small">
         <li><code>python3 AI_first/scripts/render_docs.py</code> — refresh <code>AI_first/ui/docs/</code> from markdown.</li>
+        <li><code>python3 AI_first/scripts/render_pm.py</code> — refresh <code>AI_first/ui/PM.html</code> and project detail pages.</li>
         <li><code>python3 AI_first/scripts/watch_docs.py</code> — auto-render docs while you edit.</li>
         <li><code>python3 AI_first/scripts/init_project.py</code> — scaffold new project docs and update PM.html.</li>
         <li><code>python3 AI_first/scripts/issues.py list</code> — regenerate Bug Management JSON/HTML exports.</li>

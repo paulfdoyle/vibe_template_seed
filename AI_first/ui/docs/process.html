@@ -51,13 +51,13 @@
 <li>Pick project/phase from <code>projectplan</code>; open the phase definition/action plan and linked stage actions (if any).</li>
 <li>Use <code>AI_first/docs/process.md</code> and <code>AI_first/docs/project_wide_docs/personas.md</code> as reference guides.</li>
 <li>Open a multi-context working set: project plan, phase docs, and the active stage action file in separate windows.</li>
-<li>Run personas (Reviewer/Sponsor → Project/Process Manager → Developer → QA Lead by default); add others only if triggered.</li>
+<li>Run personas (Project Creator/Owner for new projects, then Project/Process Manager → Developer → QA Lead by default); add optional personas only when scope triggers them.</li>
 <li>Execute, validate, update docs/DoD, and log issues/lessons.</li>
 </ul>
 <h2>Multi-context working set</h2>
 <ul>
 <li>Default to three windows open:</li>
-<li>**Project Management:** define projects and actions using <code>AI_first/docs/projectplan.md</code> plus the active phase definition/action plan.</li>
+<li>**Project Creator/Owner (then Project/Process Manager):** define the project when starting a new one, then manage phases and actions using <code>AI_first/docs/projectplan.md</code> plus the active phase definition/action plan.</li>
 <li>**Developer:** fix bugs and execute project actions using the current stage action file and implementation context.</li>
 <li>**QA:** report bugs, update docs, and find possible solutions to bugs using the Bug Management UI and the relevant docs.</li>
 <li>Keep support views open for context: <code>AI_first/ui/PM.html</code> (projects/actions) and <code>AI_first/ui/bugmgmt_issues.html</code> (bugs).</li>
@@ -72,7 +72,7 @@
 <li>Choose the project name and update <code>AI_first/docs/projectplan.md</code> and <code>AI_first/projects/&lt;project&gt;/</code> paths accordingly (rename the sample project if needed).</li>
 <li>Capture the project purpose, scope boundaries, and initial phases in <code>projectplan.md</code> and the project summary file.</li>
 <li>Decide whether to keep the sample Bug Management (BugMgmt) module/UI and the LaTeX user-doc template; remove or keep per your needs.</li>
-<li>After naming, continue with the default personas (Reviewer/Sponsor → Project/Process Manager → Developer → QA Lead).</li>
+<li>After naming, continue with the remaining default personas (Project/Process Manager → Developer → QA Lead).</li>
 </ul>
 <h2>Project initialization (optional)</h2>
 <ul>
@@ -94,6 +94,7 @@
 <p>Run scripts from the repo root; use <code>python3</code> (or <code>python</code> if it maps to Python 3). Use these only when you want to regenerate UI outputs or scaffold docs.</p>
 <ul>
 <li><code>AI_first/scripts/render_docs.py</code>: render markdown into <code>AI_first/ui/docs/</code>.</li>
+<li><code>AI_first/scripts/render_pm.py</code>: refresh <code>AI_first/ui/PM.html</code> and <code>AI_first/ui/project_*.html</code> from project docs.</li>
 <li><code>AI_first/scripts/watch_docs.py</code>: auto-render docs while you edit.</li>
 <li><code>AI_first/scripts/init_project.py</code>: scaffold a new project, update <code>AI_first/docs/projectplan.md</code>, and add a PM.html row.</li>
 <li><code>AI_first/scripts/issues.py</code>: regenerate Bug Management JSON/HTML exports.</li>
@@ -109,8 +110,8 @@
 </ul>
 <h2>Personas (defaults)</h2>
 <ul>
-<li>Start with: Reviewer/Sponsor → Project/Process Manager → Developer → QA Lead.</li>
-<li>Add others from <code>AI_first/docs/project_wide_docs/personas.md</code> when scope triggers them (Docs Expert, Architect, Security, UI/Accessibility, etc.).</li>
+<li>Start with: Project Creator/Owner → Project/Process Manager → Developer → QA Lead.</li>
+<li>Add optional personas from <code>AI_first/docs/project_wide_docs/personas.md</code> only when scope triggers them (Docs Expert, Product Manager, Repository Steward, UI/Accessibility, etc.).</li>
 </ul>
 <h2>Standard flow for a phase/stage</h2>
 <ol>
@@ -158,7 +159,7 @@
 <h2>Context launch prompt (copy/paste)</h2>
 <p>Use this prompt at the start of every session, before selecting a persona.</p>
 <pre><code>
-Context Launch: Review AI_first/ui/index.html, AI_first/ui/PM.html, AI_first/ui/bugmgmt_issues.html, AI_first/docs/process.md, AI_first/docs/projectplan.md, and AI_first/docs/project_wide_docs/personas.md. Identify the active project, phase, and stage action file; list open bugs; summarize current status; and ask which persona to activate next (default Reviewer/Sponsor, then Project/Process Manager). If no stage action file exists, propose the file path using the naming convention.
+Context Launch: Review AI_first/ui/index.html, AI_first/ui/PM.html, AI_first/ui/bugmgmt_issues.html, AI_first/docs/process.md, AI_first/docs/projectplan.md, and AI_first/docs/project_wide_docs/personas.md. Identify the active project, phase, and stage action file; list open bugs; summarize current status; and ask which persona to activate next (default order: Project Creator/Owner -&gt; Project/Process Manager -&gt; Developer -&gt; QA Lead; add optional personas from AI_first/docs/project_wide_docs/personas.md only when scope triggers them). If no stage action file exists, propose the file path using the naming convention.
 </code></pre>
 <p>Expected output:</p>
 <ul>

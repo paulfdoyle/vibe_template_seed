@@ -9,12 +9,11 @@
 - **Definition of Done:** Persona notes filled, DoD checklist referenced, validation steps recorded.
 
 ## Personas (record outputs; use `AI_first/docs/templates/review_checklists.md`)
-- Reviewer/Sponsor: Focus on a single local source of truth; deterministic exports; PII-free data; HTML report regenerated after every bug change.
-- Project/Process Manager: Workflow is JSONL → export JSON/HTML → review UI; keep fields minimal and consistent; document rules in process docs.
+- Project/Process Manager: Workflow is JSONL → export JSON/HTML → review UI; keep fields minimal and consistent; focus on a single local source of truth; deterministic exports; PII-free data; document rules in process docs; regenerate HTML report after every bug change.
 - Developer: Details column should show Summary by default; show optional fields only when present; fallback opened date to `date`.
 - QA Lead: Validate new bugs render, filters work, Details shows expected fields, closed bugs show closure note/date, and sort order is stable.
 - Docs Expert: Keep `AI_first/docs/process.md`, `AI_first/docs/projectplan.md`, `README.md`, and `AGENTS.md` aligned with the BugMgmt workflow.
-- Architect/Security/Ops/Perf/DBA/UI (if triggered): Not triggered; keep offline/local only and avoid schema drift.
+- Optional personas (Product Manager, Repository Steward, UI/Accessibility, Bug Triage, Automation/Tooling, Architect, Security, Ops/Observability, Performance/Cost, DBA): Not triggered; keep offline/local only and avoid schema drift.
 
 ## Plan
 - Review current BugMgmt schema and UI behavior.
