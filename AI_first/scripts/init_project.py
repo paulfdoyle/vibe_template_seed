@@ -118,7 +118,6 @@ def _render_project_row(
     purpose: str,
     owner: str,
     phase_name: str,
-    stage_slug: str,
     date_str: str,
 ) -> str:
     indent = "            "
@@ -140,19 +139,6 @@ def _render_project_row(
         {indent}    <div>Define scope and success criteria.</div>
         {indent}    <div>Populate the Phase 01 stage action.</div>
         {indent}  </td>
-        {indent}  <td>
-        {indent}    <div class="muted small">Primary</div>
-        {indent}    <div class="links">
-        {indent}      <a href="docs/projects/{project}/project_summary_{project}.html">Summary</a>
-        {indent}      <a href="docs/projects/{project}/phases/phase01/action_plan_phase01.html">Action Plan</a>
-        {indent}      <a href="docs/projects/{project}/phases/phase01/actions/{project}_phase01_stage_{stage_slug}_action.html">Stage Action</a>
-        {indent}    </div>
-        {indent}    <div class="muted small">Supporting</div>
-        {indent}    <div class="links">
-        {indent}      <a href="docs/projects/{project}/phases/phase01/phase_definition.html">Phase Def</a>
-        {indent}      <a href="bugmgmt_issues.html">Bug Management</a>
-        {indent}    </div>
-        {indent}  </td>
         {indent}</tr>"""
     )
 
@@ -173,7 +159,6 @@ def _update_pm_html(
     purpose: str,
     owner: str,
     phase_name: str,
-    stage_slug: str,
     date_str: str,
     issues_path: Path,
     dry_run: bool,
@@ -186,7 +171,7 @@ def _update_pm_html(
     if start_idx == -1 or end_idx == -1 or start_idx > end_idx:
         raise SystemExit(f"{pm_path} is missing project row markers for auto-update.")
     rows_section = text[start_idx + len(PM_ROWS_START) : end_idx]
-    new_row = _render_project_row(project, purpose, owner, phase_name, stage_slug, date_str)
+    new_row = _render_project_row(project, purpose, owner, phase_name, date_str)
     if rows_section.strip():
         rows_section = rows_section.rstrip() + "\n" + new_row + "\n"
     else:
@@ -598,7 +583,6 @@ def main() -> None:
             args.purpose.strip(),
             args.owner.strip(),
             phase_name,
-            stage_slug,
             today,
             repo_root / "AI_first" / "bugmgmt" / "issues" / "issues.jsonl",
             args.dry_run,
